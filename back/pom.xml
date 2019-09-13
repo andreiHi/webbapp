@@ -7,8 +7,15 @@
         <groupId>com.app</groupId>
         <version>1.0</version>
     </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
-
+<dependencies>
+    <dependency>
+        <groupId>com.app</groupId>
+        <artifactId>front</artifactId>
+        <version>1.0</version>
+    </dependency>
+</dependencies>
     <artifactId>back</artifactId>
     <build>
         <plugins>
@@ -22,12 +29,14 @@
                     <execution>
                         <id>copy-resources</id>
                         <phase>validate</phase>
-                        <goals><goal>copy-resources</goal></goals>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/classes/META-INF/resources/</outputDirectory>
+                            <outputDirectory>${project.build.directory}/classes/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.parent.basedir}/front/src/main/web/dist/web</directory>
+                                    <directory>${project.parent.basedir}/front/target/classes/</directory>
                                 </resource>
                             </resources>
                         </configuration>

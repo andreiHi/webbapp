@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "target/www/app",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -10,6 +10,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
+    "skipLibCheck": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
@@ -17,10 +18,19 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "include": [
+    "src/app",
+    "src/test/javascript/"
+  ]
 }
